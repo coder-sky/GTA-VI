@@ -32,6 +32,44 @@ function App() {
   }, [])
 
   useGSAP(() => {
+    if (!showContent) return
+
+    gsap.to(".main", {
+      scale: 1,
+      rotate: 0,
+      duration: 2,
+      delay: "-1",
+      ease: "Expo.easeInOut"
+    })
+    gsap.to(".sky", {
+      scale: 1.2,
+      rotate: 0,
+      duration: 2,
+      delay: "-.8",
+      ease: "Expo.easeInOut",
+    })
+    gsap.to(".bg", {
+      scale: 1.3,
+      rotate: 0,
+      duration: 2,
+      delay: "-.8",
+      ease: "Expo.easeInOut",
+    })
+    gsap.to(".character", {
+      scale: 2,
+      rotate: 0,
+      bottom: "-10%",
+      duration: 2,
+      delay: "-.8",
+      ease: "Expo.easeInOut",
+    })
+     gsap.to(".text", {
+      scale: 1,
+      rotate: 0,
+      duration: 2,
+      delay: "-.8",
+      ease: "Expo.easeInOut",
+    });
     const main = document.querySelector(".main")
     main?.addEventListener("mousemove", function (e) {
       // console.log(e)
@@ -80,8 +118,8 @@ function App() {
         </svg>
       </div>
       {
-        showContent && <div className='main w-full' >
-          <div className='landing w-full h-screen bg-black'>
+        showContent && <div className='main w-full rotate-[-10deg] scale-[1.3]' >
+          <div className='landing overflow-hidden relative  w-full h-screen bg-black'>
             <div className='navbar absolute top-0 left-0 z-[10] w-full py-10 px-10'>
               <div className='logo flex gap-5'>
                 <div className='lines flex flex-col gap-[4px]'>
@@ -95,14 +133,14 @@ function App() {
             </div>
 
             <div className='imagesdiv relative w-full h-screen overflow-hidden'>
-              <img className='sky scale-[1.1] absolute top-0 left-0 w-full h-full object-cover' src='/sky.png' alt='sky' />
-              <img className='bg scale-[1.1] absolute top-0 left-0 w-full h-full object-cover' src='/bg.png' alt='background' />
-              <div className='text text-white flex flex-col gap-2 absolute top-8 left-1/2 -translate-x-1/2'>
+              <img className='sky scale-[1.5] rotate-[-20deg] absolute top-0 left-0 w-full h-full object-cover' src='/sky.png' alt='sky' />
+              <img className='bg scale-[1.7] rotate-[-3deg] absolute top-0 left-0 w-full h-full object-cover' src='/bg.png' alt='background' />
+              <div className='text text-white flex flex-col gap-2 absolute top-8 left-1/2 -translate-x-1/2 scale-[1.4] rotate-[-10deg]'>
                 <h1 className='text-[5.5rem] leading-none -ml-36' >grand</h1>
                 <h1 className='text-[5.5rem] leading-none -ml-18'>theft</h1>
                 <h1 className='text-[5.5rem] leading-none -ml-36'>auto</h1>
               </div>
-              <img className='character absolute w-[20%] h-[60%] bottom-[-10%] left-1/2 -translate-x-1/2 scale-[2]' src='/girlbg.png' alt='girl' />
+              <img className='character absolute w-[20%] h-[60%] -bottom-[150%] left-1/2 -translate-x-1/2 scale-[4] rotate-[-60deg]' src='/girlbg.png' alt='girl' />
 
               <div className='btmbar text-white absolute bottom-0 left-0 w-full py-8 px-6 bg-gradient-to-t from-black to transfparent'>
                 <div className='flex gap-2 items-center'>
@@ -140,7 +178,7 @@ function App() {
                   eveniet eaque, dicta, hic quisquam? Ex cupiditate ipsa nostrum
                   autem sapiente.
                 </p>
-             
+
                 <button className="bg-yellow-500 px-5 py-5 text-black mt-10 text-2xl">
                   Download Now
                 </button>
