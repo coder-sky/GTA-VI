@@ -31,6 +31,23 @@ function App() {
       })
   }, [])
 
+  useGSAP(()=>{
+    const main = document.querySelector(".main")
+    main?.addEventListener("mousemove", function(e){
+    // console.log(e)
+    const xMove = (e.clientX / window.innerWidth - 0.5)*40
+    gsap.to(".imagesdiv .text", {
+      x:`${xMove*0.4}%`
+    })
+     gsap.to(".sky", {
+      x:xMove
+    })
+     gsap.to(".bg", {
+      x:xMove * 1.7
+    })
+    })
+  },[showContent])
+
   return (
     <>
       <div className='svg flex item-center justify-center fixed top-0 left-o z-[100] w-full h-screen overflow-hidden bg-[#000]'>
@@ -78,8 +95,8 @@ function App() {
             </div>
 
             <div className='imagesdiv relative w-full h-screen overflow-hidden'>
-              <img className='absolute top-0 left-0 w-full h-full object-cover' src='/sky.png' alt='sky' />
-              <img className='absolute top-0 left-0 w-full h-full object-cover' src='/bg.png' alt='background' />
+              <img className='sky scale-[1.1] absolute top-0 left-0 w-full h-full object-cover' src='/sky.png' alt='sky' />
+              <img className='bg scale-[1.1] absolute top-0 left-0 w-full h-full object-cover' src='/bg.png' alt='background' />
               <div className='text text-white flex flex-col gap-2 absolute top-8 left-1/2 -translate-x-1/2'>
                 <h1 className='text-[5.5rem] leading-none -ml-36' >grand</h1>
                 <h1 className='text-[5.5rem] leading-none -ml-18'>theft</h1>
@@ -98,7 +115,7 @@ function App() {
             </div>
 
           </div>
-
+         
         </div>
       }
     </>
