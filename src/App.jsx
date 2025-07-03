@@ -31,6 +31,23 @@ function App() {
       })
   }, [])
 
+  useGSAP(() => {
+    const main = document.querySelector(".main")
+    main?.addEventListener("mousemove", function (e) {
+      // console.log(e)
+      const xMove = (e.clientX / window.innerWidth - 0.5) * 40
+      gsap.to(".imagesdiv .text", {
+        x: `${xMove * 0.4}%`
+      })
+      gsap.to(".sky", {
+        x: xMove
+      })
+      gsap.to(".bg", {
+        x: xMove * 1.7
+      })
+    })
+  }, [showContent])
+
   return (
     <>
       <div className='svg flex item-center justify-center fixed top-0 left-o z-[100] w-full h-screen overflow-hidden bg-[#000]'>
@@ -78,15 +95,15 @@ function App() {
             </div>
 
             <div className='imagesdiv relative w-full h-screen overflow-hidden'>
-              <img className='absolute top-0 left-0 w-full h-full object-cover' src='/sky.png' alt='sky' />
-              <img className='absolute top-0 left-0 w-full h-full object-cover' src='/bg.png' alt='background' />
+              <img className='sky scale-[1.1] absolute top-0 left-0 w-full h-full object-cover' src='/sky.png' alt='sky' />
+              <img className='bg scale-[1.1] absolute top-0 left-0 w-full h-full object-cover' src='/bg.png' alt='background' />
               <div className='text text-white flex flex-col gap-2 absolute top-8 left-1/2 -translate-x-1/2'>
                 <h1 className='text-[5.5rem] leading-none -ml-36' >grand</h1>
                 <h1 className='text-[5.5rem] leading-none -ml-18'>theft</h1>
                 <h1 className='text-[5.5rem] leading-none -ml-36'>auto</h1>
               </div>
               <img className='character absolute w-[20%] h-[60%] bottom-[-10%] left-1/2 -translate-x-1/2 scale-[2]' src='/girlbg.png' alt='girl' />
-              
+
               <div className='btmbar text-white absolute bottom-0 left-0 w-full py-8 px-6 bg-gradient-to-t from-black to transfparent'>
                 <div className='flex gap-2 items-center'>
                   <i className="text-3xl ri-arrow-down-line items-center"></i>
@@ -94,6 +111,42 @@ function App() {
                 </div>
                 <img className=' absolute top-1/2 left-1/2 -translate-x-1/2 h-[45px]' src='./ps5.png' alt='ps5' />
               </div>
+
+            </div>
+
+          </div>
+          <div className='w-full h-screen bg-black flex items-center justify-center'>
+            <div className='subContent text-white flex justify-center w-full h-[80%]' >
+              <div className="limg relative w-1/3 h-full">
+                <img
+                  className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+                  src="./imag.png"
+                  alt=""
+                />
+              </div>
+              <div className="rg w-[40%] py-10">
+                <h1 className="text-5xl">Still Running,</h1>
+                <h1 className="text-5xl">Not Hunting</h1>
+                <p className="mt-5 text-xl font-[Helvetica_Now_Display]">
+                  Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                  Distinctio possimus, asperiores nam, omnis inventore nesciunt
+                  a architecto eveniet saepe, ducimus necessitatibus at
+                  voluptate.
+                </p>
+                <p className="mt-2 text-xl font-[Helvetica_Now_Display]">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. At
+                  eius illum fugit eligendi nesciunt quia similique velit
+                  excepturi soluta tenetur illo repellat consectetur laborum
+                  eveniet eaque, dicta, hic quisquam? Ex cupiditate ipsa nostrum
+                  autem sapiente.
+                </p>
+             
+                <button className="bg-yellow-500 px-5 py-5 text-black mt-10 text-2xl">
+                  Download Now
+                </button>
+              </div>
+
+
 
             </div>
 
