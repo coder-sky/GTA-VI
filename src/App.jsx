@@ -32,7 +32,7 @@ function App() {
 
   return (
     <>
-    <div className=' svg flex item-center justify-center fixed to-0 left-o z-[100] w-full h-screen overflow-hidden bg-[#000]'>
+    <div className='svg flex item-center justify-center fixed top-0 left-o z-[100] w-full h-screen overflow-hidden bg-[#000]'>
       <svg viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice">
           <defs>
             <mask id="viMask">
@@ -63,7 +63,30 @@ function App() {
     </div>
     {
       showContent && <div className='main w-full' >
-        <div className='landing w-full h-screen bg-black'></div>
+        <div className='landing w-full h-screen bg-black'>
+          <div className='navbar absolute top-0 left-0 z-[10] w-full py-10 px-10'>
+            <div className='logo flex gap-5'>
+              <div className='lines flex flex-col gap-[4px]'>
+                <div className='line w-12 h-[6px] bg-white'></div>
+                <div className='line w-8 h-[6px] bg-white'></div>
+                <div className='line w-5 h-[6px] bg-white'></div>
+
+              </div>
+              <h3 className='text-3xl -mt-[8px] leading-none text-white'>Rockstar</h3>
+            </div>
+          </div>
+          <div className='imagesdiv relative w-full h-screen overflow-hidden'>
+            <img className='absolute top-0 left-0 w-full h-full object-cover' src='/sky.png' alt='sky' />
+            <img className='absolute top-0 left-0 w-full h-full object-cover' src='/bg.png' alt='background' />
+            <img className='character absolute w-[20%] h-[60%] bottom-[-10%] left-1/2 -translate-x-1/2 scale-[2]' src='/girlbg.png' alt='girl' />
+             <div className='btmbar absolute bottom-0 left-0 w-full py-6 bg-gradient-to-t from-black to transfparent'>
+              <div className=''></div>
+              <div className=''></div>
+             </div>
+
+          </div>
+         
+        </div>
 
       </div>
     }
